@@ -1,4 +1,4 @@
-import random
+import random as rand
 
 # Third party module to send get request
 import requests as req
@@ -34,9 +34,23 @@ def main():
     # Gets rating values from td tag named posterColumn and a span inside with name 'ir'
     rating_tag = soup.select("td.posterColumn span[name=ir]")
     ratings = [float(tag['data-value']) for tag in rating_tag]
-    print(ratings)
     
     num_movies = len(titles)
-    #Making a random choice
+
+    # Making a random choice
+    while True:
+        idx = rand.randrange(0, num_movies)
+        print('Title:',titles[idx])
+        print('Actor:',actors[idx])
+        print('Year:',years[idx])
+        print('Rating:',round(ratings[idx],2))
+
+        user_input = input("Do you want another suggestion? (y/n)")
+        if user_input.lower() == 'y':
+            continue
+        else:
+            break
+
+
 if __name__ == "__main__":
     main()
