@@ -44,7 +44,7 @@ def main():
         print('Actor:',actors[idx])
         print('Year:',years[idx])
         print('Rating:',round(ratings[idx],2))
-
+        print()
         user_input = input("Do you want another suggestion? (y/n)")
         if user_input.lower() == 'y':
             continue
